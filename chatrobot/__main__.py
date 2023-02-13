@@ -11,11 +11,11 @@ import glob
 
 
 
-if len(argv) not in (1, 3, 4):
-    bot.disconnect()
-else:
+if len(argv) in {1, 3, 4}:
     chatbot.start(bot_token=Config.BOT_TOKEN)
-    
+
+else:
+    bot.disconnect()
 path = "chatrobot/plugins/*.py"
 files = glob.glob(path)
 for name in files:
@@ -27,7 +27,8 @@ for name in files:
 print("Your ChatBot is Ready.")
 print("Try Sending /start")
 
-if len(argv) not in (1, 3, 4):
-    chatbot.disconnect()
-else:
+if len(argv) in {1, 3, 4}:
     chatbot.run_until_disconnected()
+
+else:
+    chatbot.disconnect()

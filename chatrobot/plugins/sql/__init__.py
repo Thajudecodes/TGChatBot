@@ -17,4 +17,4 @@ try:
     SESSION = start()
 except AttributeError as e:
     print("DataBase Url Is Not Configured Check Again.")
-    print(str(e))
+    print(e)

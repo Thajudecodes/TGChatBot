@@ -40,7 +40,7 @@ class Users(BASE):
         self.um_id = um_id
 
     def __repr__(self):
-        return "<User %s>" % self.chat_id
+        return f"<User {self.chat_id}>"
 
 
 Users.__table__.create(checkfirst=True)

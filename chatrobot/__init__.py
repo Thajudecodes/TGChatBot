@@ -26,9 +26,9 @@ chatbot = TelegramClient("thechatbot", api_id=Config.API_ID, api_hash=Config.API
 
 ENV = os.environ.get("ENV", False)
 if bool(ENV):
-    CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
-
-    if CONSOLE_LOGGER_VERBOSE:
+    if CONSOLE_LOGGER_VERBOSE := sb(
+        os.environ.get("CONSOLE_LOGGER_VERBOSE", "False")
+    ):
         basicConfig(
             format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
             level=DEBUG,
@@ -38,7 +38,7 @@ if bool(ENV):
             format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
         )
     logger = getLogger(__name__)
-    
+
 if Config.BOT_TOKEN is None:
     logger.info("BOT_TOKEN is None. Bot Is Quiting")
     sys.exit(1)
